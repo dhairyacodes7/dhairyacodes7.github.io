@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dhairyaraj Singh Shekhawat</title>
+<meta name="description" content="Electrical engineering student in Pune. Projects in power electronics, batteries and EV systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fbfaf7;
+    --ink: #1c1c1a;
+    --muted: #5d5c57;
+    --rule: #d8d4c8;
+    --pen: #1f4d7a;
+    --check-bg: #fff3c4;
+    --check-line: #a07800;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.6 var(--sans);
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+  a { color: var(--pen); }
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* draft banner: hides itself when no CHECK notes are left */
+  .draft {
+    margin-top: 16px;
+    padding: 8px 12px;
+    border: 1px dashed var(--check-line);
+    background: var(--check-bg);
+    font: 14px/1.5 var(--mono);
+  }
+
+  header { padding: 40px 0 0; }
+  header h1 { font-size: 34px; line-height: 1.2; margin: 0 0 4px; font-weight: 600; letter-spacing: -0.01em; }
+  .sub { font-family: var(--mono); font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+  .lead { font-size: 19px; margin: 0 0 16px; }
+  .contact { font-family: var(--mono); font-size: 14px; margin: 0; padding-bottom: 20px; border-bottom: 3px double var(--ink); overflow-wrap: anywhere; }
+
+  nav { padding: 12px 0; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 14px; }
+  nav a { display: inline-block; margin: 2px 14px 2px 0; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+
+  section { padding-top: 28px; margin-top: 48px; border-top: 1px solid var(--ink); }
+  section:first-of-type { border-top: 0; margin-top: 16px; }
+  .no { font-family: var(--mono); font-size: 14px; color: var(--pen); margin: 0; }
+  h2 { font-size: 26px; line-height: 1.25; margin: 2px 0 6px; font-weight: 600; }
+  .one-line { color: var(--muted); margin: 0 0 18px; }
+  h3 {
+    font-family: var(--mono); font-size: 13px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+    margin: 28px 0 8px;
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li { margin-bottom: 8px; }
+
+  .facts { display: grid; grid-template-columns: 130px 1fr; margin: 0 0 8px; border-top: 1px solid var(--rule); }
+  .facts dt, .facts dd { margin: 0; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+  .facts dt { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 9px; }
+  .facts dd { font-size: 16px; }
+
+  .tag {
+    display: inline-block; font-family: var(--mono); font-size: 12px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border: 1.5px solid var(--ink); padding: 0 6px; margin-right: 6px; white-space: nowrap;
+  }
+  .tag.hw { background: var(--ink); color: var(--paper); }
+
+  .check {
+    background: var(--check-bg);
+    border: 1px dashed var(--check-line);
+    padding: 1px 5px;
+    font-size: 0.9em;
+  }
+  .check::before { content: "CHECK: "; font-family: var(--mono); font-weight: 500; }
+  div.check, p.check { display: block; padding: 8px 10px; margin: 10px 0; }
+
+  .table-wrap { overflow-x: auto; margin: 0 0 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); }
+  th { font-weight: 600; border-bottom: 1.5px solid var(--ink); }
+  td.v { font-family: var(--mono); font-size: 14px; }
+  td.nw { white-space: nowrap; }
+  figure a { display: block; }
+
+  figure { margin: 24px 0; border: 1px solid var(--rule); background: #fff; padding: 12px; }
+  figcaption { font-family: var(--mono); font-size: 13px; line-height: 1.5; color: var(--muted); margin-top: 10px; }
+  figcaption b { color: var(--ink); font-weight: 500; }
+
+  pre.sketch {
+    font: 13px/1.5 var(--mono);
+    border-left: 3px solid var(--rule);
+    padding: 6px 12px; margin: 0 0 12px;
+    overflow-x: auto; white-space: pre;
+  }
+
+  footer { margin: 56px 0 40px; padding-top: 16px; border-top: 3px double var(--ink); font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    header { padding-top: 24px; }
+    header h1 { font-size: 28px; }
+    .lead { font-size: 17px; }
+    h2 { font-size: 22px; }
+    .facts { grid-template-columns: 1fr; }
+    .facts dt { border-bottom: 0; padding-bottom: 0; }
+    .facts dd { padding-top: 2px; }
+    figure { padding: 8px; margin: 20px 0; }
+    table { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="draft" id="draft">DRAFT: <span id="check-count">some</span> CHECK notes left. Fill each one in, then delete it. This box goes away by itself when none are left.</div>
+
+  <header>
+    <h1>Dhairyaraj Singh Shekhawat</h1>
+    <p class="sub">Electrical engineering student · Pune, India</p>
+    <p class="lead">I am in my third year of B.E. Electrical Engineering. I work on power electronics, batteries and EV systems, and my goal is to work on the electrical side of Formula 1.</p>
+    <p class="contact">
+      <a href="mailto:shekhawatds2006@gmail.com">shekhawatds2006@gmail.com</a> ·
+      <a href="https://www.linkedin.com/in/dhairyaraj-singh-shekhawat-757057327">LinkedIn</a> ·
+      <a href="Dhairyaraj_Shekhawat_CV_Electrical.pdf">CV (PDF)</a>
+    </p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#v2g">01 V2G converter</a>
+    <a href="#solar">02 Solar charger + MPPT</a>
+    <a href="#kart">03 Electric kart</a>
+    <a href="#chopper">04 Step-down chopper</a>
+    <a href="#ec">05 MineAdapt-EC</a>
+    <a href="#sib">06 Sodium-ion bench</a>
+    <a href="#ml">07 ML projects</a>
+    <a href="#other">Other work</a>
+  </nav>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <p class="no">00</p>
+    <h2>About me</h2>
+    <p>I study electrical engineering at DIT Pimpri in Pune. I like projects where power electronics, batteries and data come together. My education:</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Degree</th><th>Where</th><th>Years</th></tr>
+        <tr><td>B.E. Electrical Engineering<br>CGPA 8.84 (Sem I–IV)</td><td>Dr. D. Y. Patil Institute of Technology, Pimpri (SPPU)</td><td class="v nw">2024–28</td></tr>
+        <tr><td>B.Sc. (Hons) Data Science &amp; AI<br>online, in parallel</td><td>IIT Guwahati</td><td class="v nw">2024–28</td></tr>
+      </table>
+    </div>
+    <p>I am good at electrical systems, MATLAB/Simulink, LTspice, Arduino and ESP32, and building a first version of an idea quickly. I use AI tools (Claude Code) to help me write code, and I have learned that I must run it and check every number myself.</p>
+    <p>Each project has a status tag. <span class="tag hw">Hardware</span> means built and measured on the bench. <span class="tag">Simulation</span> means LTspice or MATLAB results only. <span class="tag">Design</span> means calculations and plans, not measured.</p>
+  </section>
+
+  <!-- ============ 01 V2G ============ -->
+  <section id="v2g">
+    <p class="no">01</p>
+    <h2>SiC dual-active-bridge converter for vehicle-to-grid</h2>
+    <p class="one-line">A MATLAB study of a dual active bridge (DAB), the DC-DC stage that can move power both ways between an EV battery and the grid. My simulations ran the battery-to-bus direction.</p>
+
+    <dl class="facts">
+      <dt>Status</dt><dd><span class="tag">Simulation</span> No hardware.</dd>
+      <dt>Type</dt><dd>Independent study</dd>
+      <dt>When</dt><dd>Jul 2026</dd>
+      <dt>Tools</dt><dd>MATLAB</dd>
+    </dl>
+
+    <h3>The problem</h3>
+    <p>In vehicle-to-grid, the car battery charges and discharges more often, so it ages faster. I wanted to see if a smarter controller could control the converter well and also go easier on the battery.</p>
+
+    <h3>What I did</h3>
+    <ul>
+      <li>Wrote a design calculator for a 3.3 kW DAB: 400 V DC bus, 250–450 V battery, 50 kHz, 1 : 1 transformer, eight 1200 V SiC MOSFETs (C3M0065100K). It sizes the inductor (58.9 µH, 30° phase shift at rated power), checks zero-voltage switching, and estimates losses and temperature.</li>
+      <li>Wrote a model predictive controller (MPC) that adds a battery-aging cost, and compared it with a normal PI controller over a 0.5 s run with load steps from 0.5 to 3.3 kW (Fig. 1.1). It is an averaged model, not a switch-by-switch one.</li>
+      <li>Started a simple detector for wrong sensor readings (Mahalanobis distance). It still misses phase-shift faults, so it is work in progress.</li>
+    </ul>
+
+    <h3>Results (what the scripts give when run)</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Check</th><th>Result</th></tr>
+        <tr><td>Overshoot after a load step, PI → MPC</td><td class="v">17.5 % → 11.3 %</td></tr>
+        <tr><td>Battery aging, MPC vs PI (0.5 s run)</td><td class="v">only 1.5 % lower</td></tr>
+        <tr><td>MPC steady-state voltage error</td><td class="v">0.19 V</td></tr>
+        <tr><td>Calculated efficiency at 3.3 kW</td><td class="v">86.6 % (target was 97 %)</td></tr>
+        <tr><td>Estimated MOSFET junction temperature</td><td class="v">≈ 195 °C with the assumed heatsink (limit 150 °C)</td></tr>
+      </table>
+    </div>
+
+    <figure>
+      <a href="img/v2g-mpc-vs-pi.png" title="Open full size"><img src="img/v2g-mpc-vs-pi.png" width="1567" height="1087" loading="lazy" alt="Six MATLAB plots comparing PI and MPC: output voltage, phase shift, load profile, inductor RMS current, cumulative battery degradation and charge throughput over 500 ms. Degradation curves almost overlap. MPC shows a wide oscillating band between 350 and 400 ms."></a>
+      <figcaption><b>Fig. 1.1</b> Output of my MATLAB script: PI (blue) against MPC (red) through load steps from 0.5 to 3.3 kW. The aging curves (bottom left) almost overlap. The red band at 350–400 ms is burst mode at 500 W.</figcaption>
+    </figure>
+
+    <h3>What I learned</h3>
+    <p>The design does not meet its targets yet. Losses are too high and the switches would overheat, so the magnetics and cooling need work. The MPC cuts overshoot but barely helps battery life in this test, and at 500 W (burst mode) it holds the output near 415 V instead of 400 V. I would rather show this honestly than show a nice number I cannot back up.</p>
+  </section>
+
+  <!-- ============ 02 SOLAR ============ -->
+  <section id="solar">
+    <p class="no">02</p>
+    <h2>Solar charger with MPPT, for an off-grid sign</h2>
+    <p class="one-line">A 20 kHz buck converter with perturb-and-observe (P&amp;O) maximum power point tracking, charging a 25.6 V LiFePO4 battery from six 540 W panels.</p>
+
+    <dl class="facts">
+      <dt>Status</dt><dd><span class="tag">Simulation</span> MATLAB/Simulink</dd>
+      <dt>Team</dt><dd>Team Illuminators, InUnity Entrepreneurial Mindset Program. Our team was selected for the proof-of-concept round.</dd>
+      <dt>When</dt><dd>Oct 2026</dd>
+      <dt>Tools</dt><dd>MATLAB/Simulink, plus a sizing tool that runs on NASA POWER weather data</dd>
+    </dl>
+
+    <h3>The problem</h3>
+    <p>A small business wanted its outdoor signs to stay lit at night without grid power. Two questions: how big must the panel and battery be so the sign never goes dark, and how do we get the most power out of the panels when the sun keeps changing?</p>
+
+    <h3>What I did</h3>
+    <ul>
+      <li>Built a sizing tool that runs the sign's battery night by night over 10 years of NASA POWER weather data (2015–2024, 9 places). In Pune, July gives less than half of April's sun: 3.2 vs 6.9 kWh/m² a day on flat ground. So the panel must be sized for the monsoon, not for summer.</li>
+      <li>The tool can also add a wind turbine, but in the city it never picks one. A turbine there makes only about 36 kWh a year. A bigger panel with smart dimming gave zero dark nights in 10 years.</li>
+      <li>Simulated the charger in Simulink: a 20 kHz buck converter whose duty ratio is set by a P&amp;O MPPT. My first version with Simscape device blocks did not work, so I wrote the switch as circuit equations in MATLAB Function blocks.</li>
+    </ul>
+
+    <figure>
+      <a href="img/solar-buck-mppt.png" title="Open full size"><img src="img/solar-buck-mppt.png" width="2108" height="1438" loading="lazy" alt="Six Simulink plots over 0.6 s: irradiance steps from 1000 to 500 to 800 W/m²; panel power holds near 3030 W, then 1476 W, then 2415 W; panel voltage near 77 V; MPPT duty ratio near 0.36; battery charging current; and a zoom of four 20 kHz switching cycles showing the inductor current ripple."></a>
+      <figcaption><b>Fig. 2.1</b> Simulink output. The sun steps down at 0.2 s and up at 0.4 s, and the MPPT finds the new maximum each time. Bottom right: inductor ripple over four 20 kHz switching cycles. Tap to open full size.</figcaption>
+    </figure>
+
+    <h3>Results (simulation)</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Sun on panels</th><th>Max power possible</th><th>MPPT got</th></tr>
+        <tr><td class="v">1000 W/m²</td><td class="v">3,038 W</td><td class="v">3,033 W</td></tr>
+        <tr><td class="v">500 W/m²</td><td class="v">1,479 W</td><td class="v">1,476 W</td></tr>
+        <tr><td class="v">800 W/m²</td><td class="v">2,419 W</td><td class="v">2,415 W</td></tr>
+      </table>
+    </div>
+    <p>Why 3,038 W and not 6 × 540 = 3,240 W? The model runs the panels at 45 °C, and hot panels give less power than their label.</p>
+  </section>
+
+  <!-- ============ 03 KART ============ -->
+  <section id="kart">
+    <p class="no">03</p>
+    <h2>Electric go-kart for FKDC Season 10</h2>
+    <p class="one-line">A 72 V, 6 kW electric kart designed around safety. I was in the team's Electrical &amp; Electronics department.</p>
+
+    <dl class="facts">
+      <dt>Status</dt><dd><span class="tag">Design</span> Design stage. Numbers below are calculated or planned, not measured.</dd>
+      <dt>Team</dt><dd>The Pegasus (K2E05), EV category, DIT Pune</dd>
+      <dt>My part</dt><dd>The Simulink model of the power path and safety logic, and the 12 V safety loop</dd>
+      <dt>When</dt><dd>Aug – Oct 2026. Design report and presentation in Oct 2026.</dd>
+      <dt>Tools</dt><dd>MATLAB/Simulink</dd>
+    </dl>
+
+    <h3>The kart, from our final design report</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Part</th><th>Design value</th></tr>
+        <tr><td>Motor</td><td class="v">PMSM, 6 kW nominal / 9 kW peak, 72 V</td></tr>
+        <tr><td>Battery</td><td class="v">2 NMC packs in parallel, each 20S14P (72 V, 42 Ah) → 84 Ah, 6.05 kWh</td></tr>
+        <tr><td>Drive</td><td class="v">single-stage chain, 3 : 1</td></tr>
+        <tr><td>Top speed</td><td class="v">60 km/h (design)</td></tr>
+        <tr><td>Mass</td><td class="v">120 kg target, 180 kg with driver</td></tr>
+        <tr><td>FKDC limits</td><td class="v">10 kW peak, 96 V</td></tr>
+      </table>
+    </div>
+
+    <h3>The problem</h3>
+    <p>A 72 V system with up to 125 A can hurt the driver or start a fire if a fault is not handled. FKDC rules ask for kill switches, a brake over-travel switch, isolation relays, an active light and a ready-to-drive sound. The main rule I kept in mind: any fault must cut motor power, and this must not depend on software.</p>
+
+    <h3>What I did</h3>
+    <ul>
+      <li>Made a simple Simulink block model of the kart's electrical system (Fig. 3.1). The top half is the power path: two 72 V, 42 Ah packs in parallel, 90 A and 150 A fuses, a 200 A contactor, the motor controller and the 6 kW PMSM. The bottom half is the 12 V side: two kill switches, a key switch, the brake limit switch, the brake light and the ready-to-drive sounder.</li>
+      <li>Designed the 12 V safety loop: shutdown circuit, two isolation relays, brake over-travel switch and a ready-to-drive buzzer that sounds for 2 s before the throttle is enabled.</li>
+    </ul>
+
+    <figure>
+      <a href="img/kart-simulink.png" title="Open full size"><img src="img/kart-simulink.png" width="2620" height="2217" loading="lazy" alt="Simulink block model. Top: two 72 V 42 Ah batteries in parallel, 90 A and 150 A fuses, 200 A contactor, motor controller and 6 kW PMSM. Bottom: 12 V auxiliary battery, kill switches, key switch, safety loop AND block, brake light, ready-to-drive timer and sounder, dashboard."></a>
+      <figcaption><b>Fig. 3.1</b> My Simulink model of the kart. Power path on top, 12 V safety side below. Tap to open full size.</figcaption>
+    </figure>
+
+    <h3>How the shutdown loop works</h3>
+    <pre class="sketch">12 V
+ │
+[kill switch, seat]
+ │
+[kill switch, steering]
+ │
+[brake over-travel switch]
+ │
+[BMS OK, both packs]
+ │
+ ├──> relay coil, + line
+ └──> relay coil, − line
+
+all in series: any one opens
+→ both relays open
+→ motor loses power
+(brake light stays on)</pre>
+    <p>Ready-to-drive order: key on → 12 V system up → relays close through pre-charge → active light on → driver presses brake and start → buzzer sounds for at least 2 s → only then is the throttle enabled. The throttle is off whenever the loop is open.</p>
+
+    <h3>Electrical numbers (team design report, calculated)</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Check</th><th>Value</th></tr>
+        <tr><td>Rated current</td><td class="v">≈ 83 A (≈ 1C on 84 Ah, ≈ 3 A per cell)</td></tr>
+        <tr><td>Peak current</td><td class="v">≈ 125 A (≈ 4.5 A per cell; cells rated 10 A)</td></tr>
+        <tr><td>Fuses</td><td class="v">main ≈ 150 A; each pack has its own BMS and ≈ 100 A fuse</td></tr>
+        <tr><td>Tractive cable / connectors</td><td class="v">≈ 35 mm² silicone / rated ≥ 175 A</td></tr>
+        <tr><td>Motor speed at 60 km/h</td><td class="v">≈ 3410 rpm (motor max 3500 rpm)</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 04 CHOPPER ============ -->
+  <section id="chopper">
+    <p class="no">04 · hardware</p>
+    <h2>Step-down chopper on a breadboard</h2>
+    <p class="one-line">An Arduino-controlled chopper that steps 24 V DC down. Turn a knob, change the duty ratio, and the output voltage follows: V<sub>o</sub> = D × V<sub>in</sub>.</p>
+
+    <dl class="facts">
+      <dt>Status</dt><dd><span class="tag hw">Hardware</span> Built and tested on a breadboard, first on a 9 V battery, then at 24 V.</dd>
+      <dt>Type</dt><dd>TE power electronics lab, group build</dd>
+      <dt>When</dt><dd>Oct 2026</dd>
+      <dt>Parts</dt><dd>Arduino Uno (PWM on pin 9), IRLB8748 logic-level MOSFET, SB560 Schottky diode, 470 µF 50 V capacitor, 10 kΩ pot; a 9 V battery for the first test, then a 24 V DC supply</dd>
+    </dl>
+
+    <h3>The circuit</h3>
+    <pre class="sketch">+24 V ──┬───────────┬───────────┐
+        │           │           │
+     470 µF       LOAD        SB560
+      50 V          │      (band to +24 V)
+        │           ├───────────┘
+        │           │ D
+        │       IRLB8748 ── G
+        │           │ S
+GND ────┴───────────┴────── Arduino GND (must be joined)
+
+Arduino pin 9 ── 220 Ω ──┬── G
+                         │
+                       10 kΩ
+                         │
+                        GND</pre>
+    <ul>
+      <li>The MOSFET is the switch. When it is on, the full 24 V is across the load. When it is off, the load gets nothing. So the average output is D × 24 V.</li>
+      <li>The Arduino reads the pot on A0 and sets the PWM duty ratio on pin 9 from 0 to 100 %.</li>
+      <li>The SB560 diode is the freewheel path. With a motor as the load, the motor current needs somewhere to go when the switch turns off. Without the diode, that current makes a voltage spike that can kill the MOSFET.</li>
+      <li>The 220 Ω resistor limits the current spike into the MOSFET gate. The 10 kΩ pull-down keeps the MOSFET off while the Arduino starts up and pin 9 is floating.</li>
+      <li>The 470 µF capacitor holds the 24 V steady when the switch pulls current in pulses.</li>
+    </ul>
+
+    <h3>Readings</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Supply V<sub>in</sub></th><th>Duty ratio D</th><th>Expected V<sub>o</sub> = D × V<sub>in</sub></th><th>Measured V<sub>o</sub></th></tr>
+        <tr><td class="v">8.1 V (9 V battery)</td><td class="v">≈ 0.50</td><td class="v">≈ 4.05 V</td><td class="v">4.03 V</td></tr>
+      </table>
+    </div>
+
+    <h3>What went wrong, and how we fixed it</h3>
+    <ul>
+      <li>At first nothing switched. The Arduino GND and the supply GND were not joined, so the gate signal had no reference. Joining the grounds fixed it.</li>
+      <li>One PWM wire was in the Arduino's power header instead of pin 9. Easy to miss on a crowded breadboard; now I check every lead against the pin guide before power-on.</li>
+    </ul>
+
+    <h3>Next</h3>
+    <p>A boost (step-up) version with the same Arduino and MOSFET. It is started, but the output stops near 10 V, so I am still debugging it.</p>
+  </section>
+
+  <!-- ============ 05 EC ============ -->
+  <section id="ec">
+    <p class="no">05</p>
+    <h2>MineAdapt-EC: cleaning mine water with electricity</h2>
+    <p class="one-line">A modular, solar-powered electrocoagulation skid with on-device water-quality monitoring, for mine-affected water in Jharkhand. Smart India Hackathon 2026.</p>
+
+    <dl class="facts">
+      <dt>Status</dt><dd><span class="tag">Design</span><span class="tag">Software</span> One beaker bench test so far. Firmware written and flashed; probes not yet tested in water.</dd>
+      <dt>Event</dt><dd>SIH 2026, problem statement SIH26040 (Govt. of Jharkhand). Team H2ohmies.</dd>
+      <dt>My role</dt><dd>Research and software</dd>
+      <dt>When</dt><dd>Sep 2026</dd>
+      <dt>Tools</dt><dd>ESP32-C6 with PlatformIO, Python</dd>
+      <dt>Result</dt><dd>Cleared the college-level round. National result awaited.</dd>
+    </dl>
+
+    <h3>The problem</h3>
+    <p>Water near mines in Jharkhand can carry iron, fluoride and acid mine drainage. Electrocoagulation (EC) cleans it with electricity: a DC current goes through metal plates, the plates slowly dissolve, and the metal forms small lumps (flocs) that grab the dirt. No chemicals have to be bought. But almost every EC cell in research papers is a batch tank in a lab. Running one non-stop at village scale is still an open problem.</p>
+
+    <h3>What I did</h3>
+    <ul>
+      <li>Sized the reactor with Faraday's law. At 1.2 A and 0.5 L/min, the mild-steel plates release 41.7 mg of iron per litre. If the full 24 V bus sat across the cell, that would be 0.96 kWh per m³ of water; the real cell voltage is lower, so this is an upper limit.</li>
+      <li>In our team's beaker bench test (22.6 V, 2.57 A), floc formed as expected.</li>
+      <li>Wrote and flashed ESP32-C6 firmware that reads inlet and outlet pH, turbidity, TDS and temperature, and serves a live dashboard from its own Wi-Fi access point, with no internet needed.</li>
+      <li>Our team designed the skid as seven slide-in cartridges. As a cartridge slides in, the rail catches it first, then the water couplings connect, and power and data connect last through pogo pins. So a half-inserted module is never live (Fig. 5.1).</li>
+    </ul>
+
+    <figure>
+      <a href="img/ec-interface.svg" title="Open full size"><img src="img/ec-interface.svg" width="1123" height="794" loading="lazy" alt="Dimensioned drawing sheet: dovetail rail profile, rear face of a module with pogo pads and inlet, outlet and sludge sockets, insertion sequence showing rail capture at 15 mm, fluid at 15 mm, pogo at 4 mm, and the six-pin pogo pin-out."></a>
+      <figcaption><b>Fig. 5.1</b> Module interface sheet from the team's CAD: dovetail rail, rear-face ports, pogo pin-out, and the order in which the connections make. Tap to open full size.</figcaption>
+    </figure>
+
+    <h3>Results</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Check</th><th>Result</th></tr>
+        <tr><td>Beaker bench test</td><td class="v">22.6 V, 2.57 A: floc formed</td></tr>
+        <tr><td>CAD clash check, all modules seated</td><td class="v">0 clashes</td></tr>
+        <tr><td>Water volumes against target</td><td class="v">all within 3.3 % (EC reactor 2.58 L vs 2.50 L)</td></tr>
+        <tr><td>Treatment performance</td><td class="v">not measured yet</td></tr>
+      </table>
+    </div>
+
+    <figure>
+      <a href="img/ec-cartridge.png" title="Open full size"><img src="img/ec-cartridge.png" width="1760" height="1560" loading="lazy" alt="CAD render of the EC cartridge: a stack of plate pairs on the left and the serpentine 15-pass water channel inside its shell on the right."></a>
+      <figcaption><b>Fig. 5.2</b> EC cartridge from the team's CAD model: the plate rack, one pair per pass (left), and the 15-pass water channel (right).</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 06 SIB ============ -->
+  <section id="sib">
+    <p class="no">06 · now working on</p>
+    <h2>Sodium-ion cell recovery test bench</h2>
+    <p class="one-line">My main project: a bench to bring sodium-ion cells back after they have been stored at 0 V. I am keeping the method private until I have real bench results.</p>
+
+    <dl class="facts">
+      <dt>Status</dt><dd><span class="tag">Simulation</span> Bench build is next.</dd>
+      <dt>Type</dt><dd>TE seminar and group project</dd>
+      <dt>When</dt><dd>Sep 2026 – now</dd>
+      <dt>Tools</dt><dd>LTspice</dd>
+    </dl>
+
+    <h3>Two circuit problems I solved in simulation</h3>
+    <ul>
+      <li><b>Sensor amplifier too slow.</b> My first design was one LM358 stage with a gain of about 100. An LM358 has only about 1 MHz gain-bandwidth, so at that gain it gives only ×3.6 at 300 kHz. I split the gain into two ×10 stages with a faster op-amp: ×83.7 peak gain, −3 dB band 59.6–543 kHz.</li>
+      <li><b>Current source ringing.</b> With real vendor op-amp and MOSFET models, the charging current source oscillated: a 10× current step peaked 87 % above its target and kept ringing. A 1 nF compensation capacitor fixed it: it now settles in 52 µs with no overshoot.</li>
+    </ul>
+  </section>
+
+  <!-- ============ 07 ML ============ -->
+  <section id="ml">
+    <p class="no">07</p>
+    <h2>Machine learning on power and sensor data</h2>
+    <p class="one-line">Through my IIT Guwahati data science degree I also build ML models, mostly on power and sensor data. Each one is tagged with the kind of data it was trained on.</p>
+
+    <h3>Gahan: filling cloud gaps in satellite chlorophyll data</h3>
+    <p><span class="tag">Real data</span> Smart India Hackathon 2026 (SIH26067), Team H2ohmies. I built most of the ML part. scikit-learn, NumPy, SciPy.</p>
+    <ul>
+      <li>Clouds hide a lot of the satellite chlorophyll data over the sea. I trained a gradient-boosting regressor with 13 features to fill the gaps: ocean-model output, NOAA sea-surface temperature and fronts, nearby clear pixels, the pixel's average on other days, position and date.</li>
+      <li>To test it fairly, I laid real cloud shapes from other days over clear pixels, and kept the test day and its neighbours out of training.</li>
+      <li>Cyclone Dana 2024 (7,702 hidden pixels, 12 days): R² 0.87 on log chlorophyll, against 0.85 for the pixel's average, 0.67 for interpolation and 0.22 for the ocean model. On a live week of new data it got R² 0.80. On another case (BoBBLE) it lost to interpolation, so I switched it off there.</li>
+    </ul>
+
+    <h3>Power-grid fault classifier</h3>
+    <p><span class="tag">Simulated data</span> Personal project, Aug – Oct 2026. Python, PyTorch, scikit-learn.</p>
+    <ul>
+      <li>Built a simulator for faults on 3-phase AC, 1-phase AC and bipolar HVDC lines, made about 150k labelled cases, and turned each into 15 features (RMS values, FFT-based symmetrical components, peak di/dt).</li>
+      <li>An MLP (15–256–128–64–16) names 16 fault types. On 15k new simulated cases it scored 88.9%: 14 classes were perfect, but every L1-N case was called L1-G.</li>
+      <li>The reason was my own simulator: it made those two faults identical. So the fix is in the data, not a bigger model.</li>
+    </ul>
+
+    <h3>PredictiveGuard: motor fault detection</h3>
+    <p><span class="tag">Simulated data</span> Personal project, May 2026. FastAPI, scikit-learn, PyTorch, MQTT.</p>
+    <ul>
+      <li>Wrote the chain ESP32 (MPU6050 vibration, INA219 current) → MQTT → FastAPI backend that computes 18 FFT and time-domain features for each 256-sample window. So far it runs with a simulated sensor node.</li>
+      <li>Compared random forest, gradient boosting, SVM, MLP and a voting ensemble, and added a PyTorch autoencoder for anomalies. All models tied at 23 of 24 test windows, so the simulated faults were too easy. Real motor data is next.</li>
+    </ul>
+
+    <p>Also: ANN labs for load forecasting and fault detection in Keras, for my AI Applications in Electrical Engineering course.</p>
+  </section>
+
+  <!-- ============ OTHER ============ -->
+  <section id="other">
+    <p class="no">08</p>
+    <h2>Other work</h2>
+    <ul>
+      <li><b>Square-wave inverter</b> (power electronics lab). Single-phase, 24 V DC, 10 Ω load, 50 Hz, in Simulink. Simulated THD 47.3 %, close to the 48.3 % theory value for an ideal square wave. <span class="tag">Simulation</span></li>
+      <li><b>SPWM MOSFET inverter</b> in Simulink, and <b>single-phase semi and full converter</b> waveforms at 30° and 90° firing angles (assignment). <span class="tag">Simulation</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    Last updated October 2026. Every number on this page comes from my own bench readings, reports and simulation files, or from our team's design report where I say so.
+  </footer>
+
+</div>
+<script>
+  (function () {
+    var n = document.querySelectorAll('.check').length;
+    var box = document.getElementById('draft');
+    if (n === 0) { box.style.display = 'none'; }
+    else { document.getElementById('check-count').textContent = n; }
+  })();
+</script>
+</body>
+</html>
